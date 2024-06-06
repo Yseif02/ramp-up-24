@@ -11,12 +11,12 @@ class Book(BaseModel):
 
 app = FastAPI()
 
-books = [] 
+books = {} 
 
 @app.post("/books/")
 def create_book(book: Book):
     book.id = len(books) + 1
-    books.append(book)
+    books[book.id] = book
     return book, book.id
 
 @app.get("/books/")
@@ -32,12 +32,11 @@ def get_book_by_id(id: int):
 
 @app.put("/books/{id}")
 def update_book(id: int, updated_book: Book):
-    for book in books:
-        if book.id == id:
-            book.title = updated_book.title
-            book.author = updated_book.author
-            book.year = updated_book.year
-            return {"message": "Book updated successfully"}
+    if books[id] is None:
+        return {"message": "Book not found"}
+    else:
+        books[id] = updated_book
+        return {"message": "Book updated successfully"}
     return {"message": "Book not found"}
 
 @app.delete("/books/{id}")
