@@ -18,8 +18,3 @@ def majority_vote(lst):
     
     return None
 
-print(majority_vote(["A", "A", "A", "B", "C", "A"])) # A
-print(majority_vote(["A", "A", "A", "B", "B", "A"])) # A
-print(majority_vote(["A", "A", "A", "A", "B", "B"])) # A
-print(majority_vote(["A", "B", "B", "A", "C", "C"])) # None
-print(majority_vote(["B", "B", "A", "B", "B", "C"])) # B

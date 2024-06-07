@@ -16,4 +16,3 @@ data = {
     "sell_price": 45.00,
     "inventory": 1200
 }
-print(profit(data))  # Output: 14796

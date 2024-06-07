@@ -6,8 +6,3 @@ def calculate_final_price(price, discount):
     final_price = price - discount_amount
     return final_price
 
-print (calculate_final_price(1500, 50)) # ➞ 750
-
-print (calculate_final_price(89, 20)) # ➞ 71.2
-
-print (calculate_final_price(100, 75)) # ➞ 25
